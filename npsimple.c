@@ -33,6 +33,18 @@
 #define NPStringLen  UTF8Length
 extern JNIEnv *pluginJniEnv;
 
+typedef int16_t int16;
+typedef uint16_t uint16;
+typedef uint32_t uint32;
+
+#undef STRINGN_TO_NPVARIANT
+#define STRINGN_TO_NPVARIANT(_val, _len, _v)                                  \
+NP_BEGIN_MACRO                                                                \
+    (_v).type = NPVariantType_String;                                         \
+    NPString str = { _val, (uint32_t)(_len) };                                \
+    (_v).value.stringValue = str;                                             \
+NP_END_MACRO
+
 #elif defined(WEBKIT_DARWIN_SDK)
 
 #include <Webkit/npapi.h>
