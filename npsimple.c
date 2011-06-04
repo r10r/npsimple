@@ -18,8 +18,9 @@
 
 #if defined(XULRUNNER_SDK)
 #include <npapi.h>
-#include <npupp.h>
+#include <npfunctions.h>
 #include <npruntime.h>
+#include <prtypes.h>
 #elif defined(ANDROID)
 
 #undef HAVE_LONG_LONG
